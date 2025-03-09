@@ -38,6 +38,10 @@ public class InputManager : MonoBehaviour
         {
             OnSettingsMenu?.Invoke();
         }
+        // we can access the game manager through the singleton instance
+        // and then access the public read-only bool
+        // which reflects the state of the game
+        if (GameManager.Instance.IsSettingsMenuActive) return;
         OnMove?.Invoke(input.normalized);
     }
 }
